@@ -26,4 +26,15 @@ tr,td{
 .naslov{
 	padding: 25px;
 	text-align:center;
+	width:80%;
+}
+.naslovnik{
+	width:30%;
+}
+.tnaslovnik{
+	width:99%;
+	height:100%
+}
+.logo-field{
+	width:50%;
 }
