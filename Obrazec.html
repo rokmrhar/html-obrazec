@@ -9,77 +9,46 @@
 </head>
 <body>
 	<div class="glavni">
-		<table>
-			<tr>
-				<td class="logo-field"><img src="/slike/posta.png/" alt="posta-logo"></td>
-				<td class="naslov">Potrdilo o oddaji poštne pošiljke</td>
-				<tr>
-					<td div class="naslovnik">
-						<table class="tnaslovnik">
-							<tr>
-								<td colspan="2">Naslovnik</td>
-							</tr>
-							<tr>
-								<td><input type="text" name="ime" value="Janez"></td>
-								<td><input type="text" name="priimek" value="Priimek"></td>
-							</tr>
-							<tr>
-								<td colspan="2"><input type="text" value="naslov" name="naslov"> <input type="number" value="5000" name="postna-st"></td>
-							</tr>
-							<tr>
-								<td colspan="2">Naziv pošte <input type="text" name="ime-poste"></td>
-							</tr>
-						</table>
-					</td>
-					<td>
-					<table class="tstoritve">
-						<tr>
-							<td colspan="2">Storitve</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="osebna-vročitev">Osebna vročitev</td>
-							<td><input type="checkbox" name="povratnica">Povratnica</td>
-						</tr>
-						<tr>
-							<td><input type="checkbox" name="prednostno">Prednostno</td>
-							<td></td>
-						</tr>
-						<tr>
-							<td></td>
-							<td></td>
-						</tr>
-						<tr>
-							<td colspan="2" class="odkupnina">Odkupnina <input type="number" name="odkupnina"> EUR</td>
-						</tr>
-						<tr>
-							<td colspan="2">Vrednost <input type="number" name="vrednost"> EUR</td>
-						</tr>
-					</table>
-					</td>
-				</tr>
-			</tr>
-			<tr>
-				<td id="prazno">Prazno</td>
-				<td>
-					<table class="tab2">
-						<tr>
-							<td>Sprejemna št. <input type="number" name="sprejemna"></td></td>
-						</tr>
-						<tr>
-							<td>Masa <input type="number" name="masa"> g</td>
-						</tr>
-						<tr>
-							<td>Poštnina <input type="number" name="postnina"> EUR</td>
-						</tr>
-						<tr>
-							<td><script src='signature-pad.min.js' style="width: 40mm; height: 20mm;"></script></td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-		<div class="oddaj"><input type="sumbit" name="oddaj"></div>
+		<div class="head">
+			<img src="http://rokmrhar.epizy.com/drustvo.svg" alt="logo-drustvo" style="float:left; height: 50px;">
+			<img src="http://rokmrhar.epizy.com/operativa.svg?i=1" alt="logo-operativa" style="float:right; height: 50px;">
+			<h2>PRIJAVNICA NA GASILSKI KROŽEK</h2>
+		</div>
+		<div class="koraki">
+		
+		</div>
+		<div class="prijavnica">
+			<div class="ime_priimek">
+				<div class="ime">
+					<label for="ime">Ime:</label>
+					<input type="text" id="ime" name="ime" placeholder="Vpišite ime otroka">
+				</div>
+				<div class="priimek">
+					<label for="priimek">Priimek:</label>
+					<input type="text" id="priimek" name="priimek" placeholder="Vpišite priimek otroka">
+				</div>
+			</div>
+			<label for="datum_rojstva">Datum rojstva:</label>
+			<input type="date" id="dat_roj" name="dat_roj">
+			<label for="naslov">Naslov stalnega prebivališča:</label>
+			<input type="text" name="naslov" id="naslov">
+			<label for="EMSO">EMŠO:</label>
+			<input type="number" name="emso" id="emso" placeholder="Vpišite EMŠO">
+			<label for="davcna">Davčna številka</label>
+			<input type="number" name="davcna" id="davcna" placeholder="Vpišite davčno številko">
+			<div class="ime_priimek">
+				<div class="ime">
+					<label for="ime_starsa">Ime:</label>
+					<input type="text" id="ime_starsa" name="ime_starsa" placeholder="Vpišite ime starša/zakonitega zastopnika">
+				</div>
+				<div class="priimek">
+					<label for="priimek_starsa">Priimek:</label>
+					<input type="text" id="priimek_starsa" name="priimek_starsa" placeholder="Vpišite priimek starša/zakonitega zastopnika">
+				</div>
+			</div>
+			<label for="telefonska">Telefonska številka starša/zakonitega zastopnika</label>
+			<input type="number" name="telefonska" id="telefonska" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
+		</div>
 	</div>
-
 </body>
 </html>
