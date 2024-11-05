@@ -1,0 +1,179 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Roboto, sans-serif;
+	
+}
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100%;
+}
+.container{
+	width: 700px;
+	height: 450px;
+	margin: 30px auto;
+	position: relative;
+	/*overflow: hidden;*/
+}
+.container form{
+	width: 640px;
+	position: absolute;
+	top: 10px;
+	left: 20px;
+}
+form input{
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+form input:focus{
+	outline: none;
+	border: 1px solid black;
+}
+.gumbi {
+	width: 100%;
+	margin: 30px auto;
+	text-align: center;
+}
+form button{
+	width: 110px;
+	height: 35px;
+	margin: 0 10px;
+	background-color: blue;
+	border: none;
+	outline:none;
+	cursor: pointer;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+}
+form button:active{
+	transform: scale(0.98);
+}
+button{
+	font-size: 17px;
+	
+}
+#form2{
+	left: 450px;
+}
+#form3{
+	left: 450px;
+}
+h2{
+	padding-bottom: 10px;
+}
+.head {
+	margin: auto;
+	text-align: center;
+	padding: 10px;
+}
+img {
+	max-height: 100px;
+	padding: 10px;
+}
+.tab{
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+.prijavnica{
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+.podatki{
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+.izjava{
+	margin: auto;
+	padding: 20px;
+	
+}
+.ime_priimek {
+	display: flex; 
+	justify-content: space-between; 
+	gap: 20px; 
+}
+.ime, .priimek {
+	flex-grow: 1; 
+	display: flex;
+	flex-direction: column;
+}
+label {
+	display: block;
+    font-size: 16px;
+	font-weight: bold;
+	margin-bottom: 8px;
+	color: #444;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+input[type="text"], input[type="date"], input[type="number"], input[type="tel"] {
+	padding: 10px;
+	border-radius: 4px;
+	border: 1px solid #ddd;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 14px;
+
+}
+input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="tel"]:focus {
+	border-color: green;
+	outline: none;
+}
+.container .tab {
+	display: none;
+	position: absolute;
+	width: 100%;
+}
+.container .tab.active {
+	display: block;
+}
+.progress_container {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    margin: 32px auto;
+    position: relative;
+}
+.progress_container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #ddd;
+    z-index: 1;
+}
+.progress {
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%; /* Initially 0%, will grow as user progresses */
+    z-index: 2;
+    transition: width 0.4s ease-in-out;
+}
+.circle {
+    background-color: grey;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    z-index: 3;
+}
+.circle.active {
+    background-color: red;
+}
