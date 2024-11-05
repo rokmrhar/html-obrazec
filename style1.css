@@ -2,20 +2,33 @@
 	margin: 0;
 	padding: 0;
 	font-family: Roboto, sans-serif;
-	
+	/*background-image: url('https://images.pexels.com/photos/2030190/pexels-photo-2030190.jpeg');*/
+	background-position: center; 
+	background-attachment: fixed;
+	background-repeat: repeat;
+	background-size: 97%;
 }
 body{
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	min-height: 100%;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+
+}
+.glavni{
+	width:800px;
+	height:980px;
+	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+	background-color: white;
 }
 .container{
-	width: 700px;
-	height: 450px;
-	margin: 30px auto;
+	width: 800px;
+	height: auto;
+	justify-content: center;
 	position: relative;
-	/*overflow: hidden;*/
+	background-color:white;
+	
 }
 .container form{
 	width: 640px;
@@ -34,7 +47,7 @@ form input:focus{
 .gumbi {
 	width: 100%;
 	margin: 30px auto;
-	text-align: center;
+
 }
 form button{
 	width: 110px;
@@ -45,15 +58,17 @@ form button{
 	outline:none;
 	cursor: pointer;
 	border-radius: 5px;
-	color: white;
 	font-weight: bold;
+	background-color: #F75D59;
+}
+button{
+	text-align: center;
+	background-color: #F75D59;
+	color: white;
+	font-size: 17px;
 }
 form button:active{
 	transform: scale(0.98);
-}
-button{
-	font-size: 17px;
-	
 }
 #form2{
 	left: 450px;
@@ -86,12 +101,11 @@ img {
 .podatki{
 	margin: auto;
 	padding: 20px;
-	text-align: center;
 }
 .izjava{
 	margin: auto;
-	padding: 20px;
-	
+	padding: 10px;
+	text-align: left;
 }
 .ime_priimek {
 	display: flex; 
@@ -119,10 +133,9 @@ input[type="text"], input[type="date"], input[type="number"], input[type="tel"] 
 	width: 100%;
 	box-sizing: border-box;
 	font-size: 14px;
-
 }
 input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="tel"]:focus {
-	border-color: green;
+	border-color: #F62817;
 	outline: none;
 }
 .container .tab {
@@ -152,18 +165,18 @@ input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, 
     z-index: 1;
 }
 .progress {
-    background-color: red;
+    background-color: #E55451;
     position: absolute;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
     height: 4px;
-    width: 0%; /* Initially 0%, will grow as user progresses */
+    width: 0%; 
     z-index: 2;
     transition: width 0.4s ease-in-out;
 }
 .circle {
-    background-color: grey;
+    background-color: #bdbdbd ;
     height: 30px;
     width: 30px;
     display: flex;
@@ -172,8 +185,23 @@ input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, 
     border-radius: 50%;
     color: white;
     font-weight: bold;
+	position: relative;
     z-index: 3;
 }
 .circle.active {
-    background-color: red;
+    background-color: #f44336 ;
+}
+.podpis{
+	justify-content: center;
+	text-align: center;
+	
+}
+.izjava-pod{
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	line-height: 1.6;
+}
+h1{
+	color: #444;
 }
