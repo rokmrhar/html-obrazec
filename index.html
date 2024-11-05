@@ -10,12 +10,13 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 	<script src="script1.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 	<div class="glavni">
 		<div class="head">
-			<img src="http://rokmrhar.epizy.com/drustvo.JPG" alt="logo-drustvo" style="float:left; padding-left:20px;">
-			<img src="http://rokmrhar.epizy.com/operativa.JPG" alt="logo-operativa" style="float:right; padding-right:20px;">
+			<img src="http://rokmrhar.epizy.com/drustvo.jpg" alt="logo-drustvo" style="float:left; padding-left:20px;">
+			<img src="http://rokmrhar.epizy.com/operativa.jpg" alt="logo-operativa" style="float:right; padding-right:20px;">
 			<h1>PRIJAVNICA NA GASILSKI KROŽEK</h1>
 		</div>
 		<div class="progress_container">
@@ -40,7 +41,7 @@
 					<label for="datum_rojstva">Datum rojstva:</label>
 					<input type="date" id="dat_roj" name="dat_roj" min="2010-01-01" max="2017-12-31">
 					<label for="naslov">Naslov stalnega prebivališča:</label>
-					<input type="text" name="naslov" id="naslov">
+					<input type="text" name="naslov" id="naslov" style="padding-top:5px">
 					<label for="EMSO">EMŠO:</label>
 					<input type="number" name="emso" id="emso" placeholder="Vpišite EMŠO">
 					<label for="davcna">Davčna številka</label>
@@ -63,64 +64,67 @@
 					</div>
 				</div>
 				<div class="tab" id="step2">
-					<h3>PODATKI O OTROKU</h3>
-		<div class="ime_priimek">
-				<div class="ime">
-					<label for="ime">Ime:</label>
-					<input type="text" id="ime" name="ime" placeholder="Vpišite ime otroka">
-				</div>
-				<div class="priimek">
-					<label for="priimek">Priimek:</label>
-					<input type="text" id="priimek" name="priimek" placeholder="Vpišite priimek otroka">
-				</div>
-			</div>
-			<label for="datum_rojstva">Datum rojstva:</label>
-			<input type="date" id="dat_roj" name="dat_roj">
-			<label for="naslov">Naslov stalnega prebivališča:</label>
-			<input type="text" name="naslov" id="naslov">
-			<h3>PODATKI O STARŠIH</h3>
-			<div class="ime_priimek">
-				<div class="ime">
-					<label for="ime_mama">Ime:</label>
-					<input type="text" id="ime_mama" name="ime_mama" placeholder="Vpišite ime starša/zakonitega zastopnika">
-				</div>
-				<div class="priimek">
-					<label for="priimek_mama">Priimek:</label>
-					<input type="text" id="priimek_mama" name="priimek_mama" placeholder="Vpišite priimek starša/zakonitega zastopnika">
-				</div>
-			</div>
-			<div class="ime_priimek">
-				<div class="ime">
-					<label for="ime_tata">Ime:</label>
-					<input type="text" id="ime_tata" name="ime_tata" placeholder="Vpišite ime starša/zakonitega zastopnika">
-				</div>
-				<div class="priimek">
-					<label for="priimek_tata">Priimek:</label>
-					<input type="text" id="priimek_tata" name="priimek_tata" placeholder="Vpišite priimek starša/zakonitega zastopnika">
-				</div>
-			</div>
-			<label for="telefonska">Telefonska številka starša/zakonitega zastopnika</label>
-			<input type="number" name="telefonska" id="telefonska" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
-			<label for="alergije">Zdravstvene posebnosti otroka</label>
-			<input type="textarea" name="alergije" id="alergije" rows="5" cols="33">
-			<label for="drugo">Druge pomembne informacije</label>
-			<input type="textarea" name="drugo" id="drugo" rows="5" cols="33">
-			<p>PODPIS</p>
-					<div class="gumbi">
-						<button type="button" onclick="previousStep()">Nazaj</button>
-						<button type="button" onclick="nextStep()">Naprej</button>
+					<h2>PODATKI O OTROKU</h2>
+					<div class="ime_priimek">
+						<div class="ime">
+							<label for="ime">Ime:</label>
+							<input type="text" id="ime" name="ime" placeholder="Vpišite ime otroka">
+						</div>
+						<div class="priimek">
+							<label for="priimek">Priimek:</label>
+							<input type="text" id="priimek" name="priimek" placeholder="Vpišite priimek otroka">
+						</div>
+					</div>
+				<label for="datum_rojstva">Datum rojstva:</label>
+				<input type="date" id="dat_roj" name="dat_roj" min="2011-01-01" max="2017-12-31">
+				<label for="naslov">Naslov stalnega prebivališča:</label>
+				<input type="text" name="naslov" id="naslov">
+				<h2>PODATKI O STARŠIH</h2>
+				<div class="ime_priimek">
+					<div class="ime">
+						<label for="ime_mama">Ime:</label>
+						<input type="text" id="ime_mama" name="ime_mama" placeholder="Vpišite ime starša/zakonitega zastopnika">
+					</div>
+					<div class="priimek">
+						<label for="priimek_mama">Priimek:</label>
+						<input type="text" id="priimek_mama" name="priimek_mama" placeholder="Vpišite priimek starša/zakonitega zastopnika">
 					</div>
 				</div>
-				<div class="tab" id="step3">
-					<p class="gdpr">Spoštovani, v sklopu gasilskega krožka...</p>
-					<ul>
-						<li>Na uradni spletni strani gasilskega društva</li>
-						<li>V občinskem glasilu</li>
-						<li>V različnih časopisih</li>
-						<li>Socialnih medijih (Facebook, Instagram, ...)</li>
-						<li>Drugih medijih (televizija, ...)</li>
-					</ul>
-					<p>Za objavo fotografij prosimo za vaše dovoljenje</p>
+				<div class="ime_priimek">
+					<div class="ime">
+						<label for="ime_tata">Ime:</label>
+						<input type="text" id="ime_tata" name="ime_tata" placeholder="Vpišite ime starša/zakonitega zastopnika">
+					</div>
+					<div class="priimek">
+						<label for="priimek_tata">Priimek:</label>
+						<input type="text" id="priimek_tata" name="priimek_tata" placeholder="Vpišite priimek starša/zakonitega zastopnika">
+					</div>
+				</div>
+				<label for="telefonska">Telefonska številka starša/zakonitega zastopnika</label>
+				<input type="number" name="telefonska" id="telefonska" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
+				<label for="alergije">Zdravstvene posebnosti otroka</label>
+				<input type="textarea" name="alergije" id="alergije" rows="5" cols="33">
+				<label for="drugo">Druge pomembne informacije</label>
+				<input type="textarea" name="drugo" id="drugo" rows="5" cols="33">
+				<div class="podpis">
+				<script src="signature-pad.min.js" style="width: 40mm; height: 20mm;" class=" signature-pad-script" id="signature-pad-script-f36ea274-e156-456a-a543-dc1a80ffde67"></script>
+				</div>
+						<div class="gumbi">
+							<button type="button" onclick="previousStep()">Nazaj</button>
+							<button type="button" onclick="nextStep()">Naprej</button>
+						</div>
+					</div>
+					<div class="tab" id="step3">
+						<div class="izjava">
+							<p>Spoštovani, v sklopu gasilskega krožka smo dejavni na številnih področjih. Za namen promocije naše dejavnosti in gasilskega krožka bi radi uporabili fotografije, ki nastanejo na različnih dogodkih. Navadno jih objavljamo nauradni spletni strani GD, v občinskem glasilu, v raznih časopisih, socialnih omrežjih in drugih medijih. Za objavo fotografij prosimo za vaše dovoljenje.</p> 
+						</div>
+						<div class="izjava-pod">
+							<span>Spodaj podpisani</span>
+							<span><input type="text" id="ime" name="ime" placeholder="Ime in priimek starša/skrbnika"></span>
+							<span>dovoljujem objavljanje fotografij mojega otroka</span>
+							<span><input type="text" id="ime" name="ime" placeholder="Ime in priimek otroka"></span>
+							<span>v zgoraj navedenih primerih.</span>
+						</div>
 					<div class="gumbi">
 						<button type="button" onclick="previousStep()">Nazaj</button>
 						<button type="submit">Pošlji</button>
