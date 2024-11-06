@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Obrazec</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<title>Prijavnica na gasilski krožek</title>
+    <link rel="icon" href="https://gasilec.net/wp-content/uploads/2020/12/CELADA-1.jpg" type="image/x-icon">
 	<link rel="stylesheet" href="style1.css"/>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +26,7 @@
 			<div class="circle">3</div>
 		</div>
 		<div class="container">
-			<form id="multiStepForm">
+			<form id="multiStepForm" onsubmit="myFunction()">
 				<div class="tab" id="step1">
 					<div class="ime_priimek">
 					<div class="ime">
@@ -58,6 +58,7 @@
 					</div>
 					<label for="telefonska">Telefonska številka starša/zakonitega zastopnika</label>
 					<input type="number" name="telefonska" id="telefonska" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
+					<label for="slika">Naložite sliko vašega otroka</label>
 					<input type="file" id="myFile" name="filename" style="margin-top: 20px">
 					<div class="gumbi">
 						<button type="button" onclick="nextStep()">Naprej</button>

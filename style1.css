@@ -2,11 +2,6 @@
 	margin: 0;
 	padding: 0;
 	font-family: Roboto, sans-serif;
-	/*background-image: url('https://images.pexels.com/photos/2030190/pexels-photo-2030190.jpeg');*/
-	background-position: center; 
-	background-attachment: fixed;
-	background-repeat: repeat;
-	background-size: 97%;
 }
 body{
 	display: flex;
@@ -14,14 +9,23 @@ body{
 	justify-content: center;
 	min-height: 100%;
 	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
+	background-image: url('https://images.pexels.com/photos/2030190/pexels-photo-2030190.jpeg');
+	background-position: center; 
+	background-attachment: fixed;
+	background-repeat: repeat;
+	background-size: 97%;
+	position: static;
+	z-index:1;
+	opacity: 0.9;
 }
 .glavni{
 	width: 900px;
 	height: 1100px;
-	box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px 4px 12px #ec7063;
 	background-color: white;
 	position: relative;
 	z-index: 10;
+	border-radius: 20px;
 }
 .container{
 	width: 900px;
@@ -47,7 +51,6 @@ form input:focus{
 .gumbi {
 	width: 100%;
 	margin: 30px auto;
-
 }
 form button{
 	width: 110px;
@@ -88,7 +91,7 @@ h2{
 	padding: 10px;
 }
 img {
-	max-height: 100px;
+	max-height: 120px;
 	padding: 10px;
 }
 .tab{
@@ -146,7 +149,6 @@ input[type="textarea"]{
 	background-color: white;
 	height: 60px;
 	width: 100%;
-	
 }
 input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="textarea"]:focus {
 	border-color: #F62817;
@@ -219,4 +221,5 @@ input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, 
 }
 h1{
 	color: #444;
+	font-size: 35px;
 }

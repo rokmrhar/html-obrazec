@@ -29,11 +29,14 @@ document.addEventListener("DOMContentLoaded", () => {
     showStep(currentStep);
 });
 
-document.getElementById("submit").addEventListener("click", () => {
-    Swal.fire({
+document.getElementById("multiStepForm").onsubmit=function() {
+myFunction()};
+    
+function myFunction(){
+	Swal.fire({
         title: "Oddali ste prijavo!",
         text: "Najlepša hvala!",
         icon: "success",
-        confirmButtonText: "V redu"
+        confirmButtonText: "Zapri obvestilo"
     });
-});
+}
