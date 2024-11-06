@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
     showStep(currentStep);
 });
 
-document.getElementById("multiStepForm").onsubmit=function() {
+document.getElementById("multiStepForm").onsubmit = function() {
 myFunction()};
     
 function myFunction(){
