@@ -28,6 +28,7 @@
 		<div class="container">
 			<form id="multiStepForm" onsubmit="myFunction()">
 				<div class="tab" id="step1">
+					<h2>PODATKI O OTROKU</h2>
 					<div class="ime_priimek">
 					<div class="ime">
 						<label for="ime">Ime:</label>
@@ -38,26 +39,26 @@
 						<input type="text" id="priimek" name="priimek" placeholder="Vpišite priimek otroka">
 					</div>
 					</div>
-					<label for="datum_rojstva">Datum rojstva:</label>
-					<input type="date" id="dat_roj" name="dat_roj" min="2010-01-01" max="2017-12-31">
+					<div class="rojstvo">
+						<div class="datum">
+							<label for="datum">Datum rojstva:</label>
+							<input type="date" id="dat_roj" name="dat_roj" min="2010-01-01" max="2017-12-31">
+						</div>
+						<div class="kraj">
+							<label for="kraj">Kraj rojstva:</label>
+							<input type="text" id="kraj-roj" name="kraj-roj" placeholder="Vpišite kraj rojstva">
+						</div>
+					</div>
 					<label for="naslov">Naslov stalnega prebivališča:</label>
 					<input type="text" name="naslov" id="naslov" style="padding-top:5px">
 					<label for="EMSO">EMŠO:</label>
 					<input type="number" name="emso" id="emso" placeholder="Vpišite EMŠO">
 					<label for="davcna">Davčna številka</label>
 					<input type="number" name="davcna" id="davcna" placeholder="Vpišite davčno številko">
-					<div class="ime_priimek">
-						<div class="ime">
-							<label for="ime_starsa">Ime:</label>
-							<input type="text" id="ime_starsa" name="ime_starsa" placeholder="Vpišite ime starša/zakonitega zastopnika">
-						</div>
-						<div class="priimek">
-							<label for="priimek_starsa">Priimek:</label>
-							<input type="text" id="priimek_starsa" name="priimek_starsa" placeholder="Vpišite priimek starša/zakonitega zastopnika">
-						</div>
-					</div>
-					<label for="telefonska">Telefonska številka starša/zakonitega zastopnika</label>
-					<input type="number" name="telefonska" id="telefonska" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
+					<label for="alergije">Zdravstvene posebnosti otroka</label>
+					<input type="textarea" name="alergije" rows="0" cols="0">
+					<label for="drugo">Druge pomembne informacije</label>
+					<input type="textarea" name="drugo" rows="0" cols="0">
 					<label for="slika">Naložite sliko vašega otroka</label>
 					<input type="file" id="myFile" name="filename" style="margin-top: 20px">
 					<div class="gumbi">
@@ -65,55 +66,44 @@
 					</div>
 				</div>
 				<div class="tab" id="step2">
-					<h2>PODATKI O OTROKU</h2>
+					<h2>PODATKI STARŠEV ALI ZAKONITIH ZASTOPNIKOV (ZA POTREBE OBVEŠČANJA)</h2>
+					<h3 class="mama_tata">PODATKI O MATERI</h3>
 					<div class="ime_priimek">
 						<div class="ime">
-							<label for="ime">Ime:</label>
-							<input type="text" id="ime" name="ime" placeholder="Vpišite ime otroka">
+							<label for="ime_mama">Ime:</label>
+							<input type="text" id="ime_mama" name="ime_mama" placeholder="Vpišite ime starša/zakonitega zastopnika">
 						</div>
 						<div class="priimek">
-							<label for="priimek">Priimek:</label>
-							<input type="text" id="priimek" name="priimek" placeholder="Vpišite priimek otroka">
+							<label for="priimek_mama">Priimek:</label>
+							<input type="text" id="priimek_mama" name="priimek_mama" placeholder="Vpišite priimek starša/zakonitega zastopnika">
 						</div>
 					</div>
-				<label for="datum_rojstva">Datum rojstva:</label>
-				<input type="date" id="dat_roj" name="dat_roj" min="2011-01-01" max="2017-12-31">
-				<label for="naslov">Naslov stalnega prebivališča:</label>
-				<input type="text" name="naslov" id="naslov">
-				<h2>PODATKI O STARŠIH</h2>
-				<div class="ime_priimek">
-					<div class="ime">
-						<label for="ime_mama">Ime:</label>
-						<input type="text" id="ime_mama" name="ime_mama" placeholder="Vpišite ime starša/zakonitega zastopnika">
-					</div>
-					<div class="priimek">
-						<label for="priimek_mama">Priimek:</label>
-						<input type="text" id="priimek_mama" name="priimek_mama" placeholder="Vpišite priimek starša/zakonitega zastopnika">
-					</div>
-				</div>
-				<div class="ime_priimek">
-					<div class="ime">
-						<label for="ime_tata">Ime:</label>
-						<input type="text" id="ime_tata" name="ime_tata" placeholder="Vpišite ime starša/zakonitega zastopnika">
-					</div>
-					<div class="priimek">
-						<label for="priimek_tata">Priimek:</label>
-						<input type="text" id="priimek_tata" name="priimek_tata" placeholder="Vpišite priimek starša/zakonitega zastopnika">
-					</div>
-				</div>
-				<label for="telefonska">Telefonska številka starša/zakonitega zastopnika</label>
-				<input type="number" name="telefonska" id="telefonska" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
-				<label for="alergije">Zdravstvene posebnosti otroka</label>
-				<input type="textarea" name="alergije" rows="0" cols="0">
-				<label for="drugo">Druge pomembne informacije</label>
-				<input type="textarea" name="drugo" rows="0" cols="0">
-				<div class="podpis">
-				<script src="signature-pad.min.js" style="width: 40mm; height: 20mm; text-align: center;" class=" signature-pad-script" id="signature-pad-script-f36ea274-e156-456a-a543-dc1a80ffde67"></script>
-				</div>
-						<div class="gumbi">
-							<button type="button" onclick="previousStep()">Nazaj</button>
-							<button type="button" onclick="nextStep()">Naprej</button>
+					<label for="telefonska-mama">Telefonska številka starša/zakonitega zastopnika</label>
+					<input type="number" name="telefonska-mama" id="telefonska-mama" placeholder="Vpišite telefonsko številko starša/zakonitega zastopnika">
+					<div class="ime_priimek">
+						<div class="ime">
+							<label for="ime_tata">Ime očeta:</label>
+							<input type="text" id="ime_tata" name="ime_tata">
 						</div>
+						<div class="priimek">
+							<label for="priimek_tata">Priimek očeta:</label>
+							<input type="text" id="priimek_tata" name="priimek_tata">
+						</div>
+					</div>
+					<label for="telefonska">Telefonska številka očeta</label>
+					<div class="phone-input">
+						<select class="prefix">
+							<option value="+386">+386 (Slovenija)</option>
+							<option value="+39">+39 (Italija)</option>
+						</select>
+						<input type="text" class="number" maxlength="8" pattern="\d{8}" placeholder="12345678" required>
+					</div>
+					<label for="mail-tata">E - poštni naslov očeta:</label>
+					<input type="mail" class="mail-tata" name="mail-tata">
+					<div class="gumbi">
+						<button type="button" onclick="previousStep()">Nazaj</button>
+						<button type="button" onclick="nextStep()">Naprej</button>
+					</div>
 					</div>
 					<div class="tab" id="step3">
 						<div class="izjava">
@@ -126,10 +116,13 @@
 							<span><input type="text" id="ime" name="ime" placeholder="Ime in priimek otroka"></span>
 							<span>v zgoraj navedenih primerih.</span>
 						</div>
-					<div class="gumbi">
-						<button type="button" onclick="previousStep()">Nazaj</button>
-						<button type="submit">Pošlji</button>
-					</div>
+						<div class="podpis">
+							<script src="signature-pad.min.js" style="width: 40mm; height: 20mm; text-align: center;" class=" signature-pad-script" id="signature-pad-script-f36ea274-e156-456a-a543-dc1a80ffde67"></script>
+						</div>
+						<div class="gumbi">
+							<button type="button" onclick="previousStep()">Nazaj</button>
+							<button type="submit">Pošlji</button>
+						</div>
 				</div>
 			</form>
 		</div>
