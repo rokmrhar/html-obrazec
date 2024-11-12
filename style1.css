@@ -1,276 +1,103 @@
-* {
-	margin: 0;
-	padding: 0;
-	font-family: Roboto, sans-serif;
+let currentStep = 0;
+const tabs = document.querySelectorAll(".tab");
+const circles = document.querySelectorAll(".circle");
+const progress = document.getElementById("progress");
+
+function showStep(step) {
+    tabs.forEach((tab, index) => {
+        tab.classList.toggle("active", index === step);
+    });
+    circles.forEach((circle, index) => {
+        circle.classList.toggle("active", index <= step);
+    });
+
+    progress.style.width = `${(step / (circles.length - 1)) * 100}%`;
 }
-body{
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100%;
-	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif; 
-	background-image: url('https://images.pexels.com/photos/2030190/pexels-photo-2030190.jpeg');
-	background-position: center; 
-	background-attachment: fixed;
-	background-repeat: repeat;
-	background-size: 97%;
-	position: static;
-	z-index:1;
-	opacity: 0.9;
+
+function nextStep() {
+    if (currentStep < tabs.length - 1) {
+        if (validateStep(currentStep)) {
+            currentStep++;
+            showStep(currentStep);
+        }
+    }
 }
-.glavni{
-	width: 900px;
-	height: 875px;
-	box-shadow: 0px 4px 12px #ec7063;
-	background-color: white;
-	position: relative;
-	z-index: 10;
-	border-radius: 20px;
-	margin-top: 10px;
-	overflow: hidden;
+
+function previousStep() {
+    if (currentStep > 0) {
+        currentStep--;
+        showStep(currentStep);
+    }
 }
-.container{
-	width: 900px;
-	height: auto;
-	justify-content: center;
-	position: relative;
-	background-color:white;
+
+document.addEventListener("DOMContentLoaded", () => {
+    showStep(currentStep);
+});
+
+document.getElementById("multiStepForm").onsubmit = function(event) {
+    if (!validateForm()) {
+        event.preventDefault(); 
+    } else {
+        myFunction();
+    }
+};
+
+function validateForm() {
+    let isValid = true;
+    const requiredFields = document.querySelectorAll("#multiStepForm [required]");
+    
+    for (let field of requiredFields) {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add("invalid");
+            Swal.fire({
+                title: "Napaka!",
+                text: `Prosimo, izpolnite polje: ${getLabel(field)}`,
+                icon: "error",
+                confirmButtonText: "V redu"
+            });
+            return false;
+        } else {
+            field.classList.remove("invalid");
+        }
+    }
+
+    return isValid;
 }
-.container form{
-	width: 800px;
-	position: absolute;
-	top: 10px;
-	left: 30px;
+
+function validateStep(step) {
+    let isValid = true;
+    const stepFields = tabs[step].querySelectorAll("[required]");
+    
+    for (let field of stepFields) {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.classList.add("invalid");
+            Swal.fire({
+                title: "Napaka!",
+                text: `Prosimo, izpolnite vsa polja označena z *`,
+                icon: "error",
+                confirmButtonText: "V redu"
+            });
+            return false;
+        } else {
+            field.classList.remove("invalid");
+        }
+    }
+
+    return isValid;
 }
-form input{
-	border: 1px solid grey;
-	border-radius: 5px;
+
+function getLabel(field) {
+    const label = field.previousElementSibling;
+    return label ? label.textContent.trim() : "neznano polje";
 }
-form input:focus{
-	outline: none;
-	border: 1px solid black;
-}
-.gumbi {
-	width: 100%;
-	margin: 30px auto;
-}
-form button{
-	width: 110px;
-	height: 35px;
-	margin: 0 10px;
-	background-color: blue;
-	border: none;
-	outline:none;
-	cursor: pointer;
-	border-radius: 5px;
-	font-weight: bold;
-	background-color: #F75D59;
-}
-button{
-	text-align: center;
-	background-color: #F75D59;
-	color: white;
-	font-size: 17px;
-}
-button:hover{
-	background-color: #DE5350;
-}
-form button:active{
-	transform: scale(0.98);
-}
-h2{
-	padding-bottom: 10px;
-}
-.head {
-	margin: auto;
-	text-align: center;
-	padding: 10px;
-}
-img {
-	max-height: 120px;
-	padding: 10px;
-}
-.tab{
-	margin: auto;
-	padding: 20px;
-	text-align: center;
-}
-.prijavnica{
-	margin: auto;
-	padding: 20px;
-	text-align: center;
-}
-.podatki{
-	margin: auto;
-	padding: 20px;
-}
-.izjava{
-	font-family: Roboto;
-	margin: auto;
-	padding: 10px;
-	text-align: left;
-	background-color: white;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	font-size: 16px;
-}
-.ime_priimek {
-	display: flex; 
-	justify-content: space-between; 
-	gap: 20px; 
-}
-.ime, .priimek {
-	flex-grow: 1; 
-	display: flex;
-	flex-direction: column;
-}
-.rojstvo {
-	display: flex; 
-	justify-content: space-between; 
-	gap: 20px; 
-}
-.datum, .kraj {
-	flex-grow: 1; 
-	display: flex;
-	flex-direction: column;
-}
-.emdav {
-	display: flex; 
-	justify-content: space-between; 
-	gap: 20px; 
-}
-.emso, .davcna {
-	flex-grow: 1; 
-	display: flex;
-	flex-direction: column;
-}
-label {
-	display: block;
-    font-size: 16px;
-	font-weight: bold;
-	margin-top: 3px;
-	margin-bottom: 5px;
-	color: #444;
-	padding-bottom: 5px;
-	padding-top: 5px;
-}
-input[type="text"], input[type="date"], input[type="number"], input[type="tel"], input[type="mail"], input[type="radio"]{
-	padding: 10px;
-	border-radius: 4px;
-	border: 1px solid #ddd;
-	width: 100%;
-	box-sizing: border-box;
-	font-size: 14px;
-	background-color: white;
-}
-input[type="textarea"]{
-	font-size: 14px;
-	box-sizing: border-box;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	background-color: white;
-	height: 60px;
-	width: 100%;
-}
-input[type="text"]:focus, input[type="date"]:focus, input[type="number"]:focus, input[type="tel"]:focus, input[type="textarea"]:focus, input[type="mail"]:focus, input[type="radio"]:focus{
-	border-color: #F62817;
-	outline: none;
-}
-.container .tab {
-	display: none;
-	position: absolute;
-	width: 100%;
-}
-.container .tab.active {
-	display: block;
-}
-.progress_container {
-    width: 350px;
-    display: flex;
-    justify-content: space-between;
-    margin: 32px auto;
-    position: relative;
-}
-.progress_container::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    height: 4px;
-    width: 100%;
-    background-color: #ddd;
-    z-index: 1;
-}
-.progress {
-    background-color: #E55451;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
-    height: 4px;
-    width: 0%; 
-    z-index: 2;
-    transition: width 0.4s ease-in-out;
-}
-.circle {
-    background-color: #bdbdbd ;
-    height: 30px;
-    width: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    color: white;
-    font-weight: bold;
-	position: relative;
-    z-index: 3;
-}
-.circle.active {
-    background-color: #f44336 ;
-}
-.podpis{
-	justify-content: center;
-	text-align: center;
-	margin-top: 10px;
-	padding-left: 40%;
-	text-align: center;
-}
-h1{
-	color: #444;
-	font-size: 35px;
-}
-.phone-input {
-	display: flex;
-	align-items: center;
-}
-.prefix {
-	font-family: Roboto;
-	font-size: 14px;
-	height: 39px;
-	padding: 0 10px;
-	background-color: white;
-	border: 1px solid #ddd;
-	border-radius: 4px;
-	margin-right: 5px;
-}
-.prefix:active{
-	border-color: #F62817;
-	outline: none;
-}
-.number {
-	border: 1px solid #ccc;
-	border-left: none;
-	border-radius: 0 4px 4px 0;
-	padding: 5px;
-	width: 150px;
-}
-hr{
-	margin-top: 20px;
-	margin-bottom: 10px;
-	border: 2px solid black;
-}
-.obvezno{
-	display: inline;
-	color: red;
+
+function myFunction() {
+    Swal.fire({
+        title: "Oddali ste prijavo!",
+        text: "Najlepša hvala!",
+        icon: "success",
+        confirmButtonText: "Zapri obvestilo"
+    });
 }
