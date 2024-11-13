@@ -66,13 +66,13 @@
 							<label for="EMSO">EMŠO:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="number" name="emso" id="emso" maxlength="13" required>
+							<input type="number" name="emso" id="emso" maxlength="13" pattern="\d{1,13}" required>
 						</div>
 						<div class="davcna">
 							<label for="davcna">Davčna številka
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="number" name="davcna" id="davcna" maxlength="8" pattern="\8*" required>
+							<input type="number" name="davcna" id="davcna" maxlength="8" pattern="\d{1,8}" required>
 						</div>
 					</div>
 					<label for="alergije">Zdravstvene posebnosti otroka</label>
