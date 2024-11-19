@@ -72,7 +72,7 @@
 							<label for="davcna">Davčna številka
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="number" name="davcna" id="davcna" maxlength="8" pattern="[0-9]{13}" required>
+							<input type="text" name="davcna" id="davcna" maxlength="8" pattern="\d{8}" required>
 						</div>
 					</div>
 					<label for="alergije">Zdravstvene posebnosti otroka</label>
@@ -114,7 +114,7 @@
 					<label for="mail-mama">E - poštni naslov očeta:
 						<p class="obvezno"> *</p>
 					</label>
-					<input type="mail" class="mail-mama" name="mail-mama" required>
+					<input type="email" class="mail-mama" name="mail-mama" required>
 					<hr>
 					<div class="ime_priimek">
 						<div class="ime">
@@ -143,7 +143,7 @@
 					<label for="mail-tata">E - poštni naslov očeta:
 						<p class="obvezno"> *</p>
 					</label>
-					<input type="mail" class="mail-tata" name="mail-tata" required>
+					<input type="email" class="mail-tata" name="mail-tata" required>
 					<div class="gumbi">
 						<button type="button" onclick="previousStep()">Nazaj</button>
 						<button type="button" onclick="nextStep()">Naprej</button>
