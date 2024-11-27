@@ -323,6 +323,6 @@ textarea {
     resize: none;
 	font-family: Roboto;
 	font-size: 13px;
-	border: solid #F75D59 1px;
+	border: solid #ddd 1px;
 	border-radius: 5px;
 }
