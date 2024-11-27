@@ -76,10 +76,10 @@
 						</div>
 					</div>
 					<label for="alergije">Zdravstvene posebnosti otroka</label>
-					<input type="textarea" name="alergije" rows="0" cols="0">
+					<textarea name="alergije" rows="4" cols="100"></textarea>
 					<label for="drugo">Druge pomembne informacije</label>
-					<input type="textarea" name="drugo" rows="0" cols="0">
-					<label for="slika">Naložite sliko vašega otroka</label>
+					<textarea name="drugo" rows="4" cols="100"></textarea>
+					<label for="slika" style="margin-bottom: 0";>Naložite sliko vašega otroka</label>
 					<input type="file" id="myFile" name="filename" style="margin-top: 20px">
 					<div class="gumbi">
 						<button type="button" onclick="nextStep()">Naprej</button>
@@ -169,6 +169,7 @@
 							</label>
 						</div>
 						<div class="podpis">
+							<label for="izjava">Z podpisom se strinjam, da so vsi vnešeni podatki resnični.</label>
 							<canvas id="podpis-canvas" width="300" height="300"></canvas>
 							<script>
 								var canvas = document.getElementById("podpis-canvas");
@@ -227,7 +228,7 @@
 						</div>
 						<div class="gumbi">
 							<button type="button" onclick="previousStep()">Nazaj</button>
-							<button type="submit">Pošlji</button>
+							<button type="submit" id="submitBtn">Pošlji</button>
 						</div>
 				</div>
 			</form>
