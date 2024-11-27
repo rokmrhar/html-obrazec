@@ -2,6 +2,7 @@ let currentStep = 0;
 const tabs = document.querySelectorAll(".tab");
 const circles = document.querySelectorAll(".circle");
 const progress = document.getElementById("progress");
+
 function showStep(step) {
     tabs.forEach((tab, index) => {
         tab.classList.toggle("active", index === step);
@@ -12,6 +13,7 @@ function showStep(step) {
 
     progress.style.width = `${(step / (circles.length - 1)) * 100}%`;
 }
+
 function nextStep() {
     if (currentStep < tabs.length - 1) {
         if (validateStep(currentStep)) {
@@ -27,16 +29,20 @@ function previousStep() {
         showStep(currentStep);
     }
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     showStep(currentStep);
 });
 
 document.getElementById("multiStepForm").onsubmit = function(event) {
-    if (!validateForm()) {
-        event.preventDefault();
-    } else {
-        myFunction();
-    }
+    event.preventDefault();  
+
+    Swal.fire({
+        title: "Oddali ste prijavnico!",
+        text: "Najlepša hvala!",
+        icon: "success",
+        confirmButtonText: "Zapri obvestilo"
+    }); 
 };
 
 function validateForm() {
@@ -47,6 +53,7 @@ function validateForm() {
         if (!field.value.trim()) {
             isValid = false;
             field.classList.add("invalid");
+            // Napaka bo prikazana samo, če so potrebna polja prazna
             Swal.fire({
                 title: "Napaka!",
                 text: `Prosimo, izpolnite polje: ${field.previousElementSibling.textContent.trim()}`,
@@ -58,7 +65,7 @@ function validateForm() {
             field.classList.remove("invalid");
         }
 
-        if (field.type === "mail" && !validateEmail(field.value)) {
+        if (field.type === "email" && !validateEmail(field.value)) {
             isValid = false;
             field.classList.add("invalid");
             Swal.fire({
@@ -73,7 +80,6 @@ function validateForm() {
 
     return isValid;
 }
-
 function validateStep(step) {
     let isValid = true;
     const stepFields = tabs[step].querySelectorAll("[required]");
@@ -96,17 +102,7 @@ function validateStep(step) {
 
     return isValid;
 }
-
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
-}
-
-function myFunction() {
-    Swal.fire({
-        title: "Oddali ste prijavnico!",
-        text: "Najlepša hvala!",
-        icon: "success",
-        confirmButtonText: "Zapri obvestilo"
-    });
 }
