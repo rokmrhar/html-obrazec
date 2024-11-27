@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Prijavnica na gasilski krožek</title>
-    <link rel="icon" href="slike/CELADA-1.jpg" type="image/x-icon">
+    <link rel="icon" href="slike/drustvo.jpg" type="image/x-icon">
 	<link rel="stylesheet" href="css/style1.css"/>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,13 +34,13 @@
 						<label for="ime-otroka">Ime:
 							<p class="obvezno"> *</p>
 						</label>
-						<input type="text" id="ime-otroka" name="ime-otroka" required>
+						<input type="text" id="ime-otroka" name="ime-otroka" maxlength="20" required>
 					</div>
 					<div class="priimek">
 						<label for="priimek-otroka">Priimek:
 						<p class="obvezno"> *</p>
 						</label>
-						<input type="text" id="priimek-otroka" name="priimek-otroka" required>
+						<input type="text" id="priimek-otroka" name="priimek-otroka" maxlength="20" required>
 					</div>
 					</div>
 					<div class="rojstvo">
@@ -54,25 +54,25 @@
 							<label for="kraj">Kraj rojstva:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="text" id="kraj-roj" name="kraj-roj" required>
+							<input type="text" id="kraj-roj" name="kraj-roj" maxlength="30" lerequired>
 						</div>
 					</div>
 					<label for="naslov">Naslov stalnega prebivališča:
 						<p class="obvezno"> *</p>
 					</label>
-					<input type="text" name="naslov" id="naslov" style="padding-top:5px" required>
+					<input type="text" name="naslov" id="naslov" style="padding-top:5px" maxlength="40" pattern="[0-9]*" required>
 					<div class="emdav">
 						<div class="emso">
 							<label for="EMSO">EMŠO:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="number" name="emso" id="emso"  minlength="13" maxlength="13" required>
+							<input type="number" name="emso" id="emso" oninput="this.value=this.value.slice(0,13)" required>
 						</div>
 						<div class="davcna">
 							<label for="davcna">Davčna številka
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="number" name="davcna" id="davcna" maxlength="8" pattern="\d{8}" required>
+							<input type="number" name="davcna" id="davcna" oninput="this.value=this.value.slice(0,8)" required>
 						</div>
 					</div>
 					<label for="alergije">Zdravstvene posebnosti otroka</label>
@@ -92,13 +92,13 @@
 							<label for="ime_mama">Ime matere:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="text" id="ime_mama" name="ime_mama">
+							<input type="text" id="ime_mama" name="ime_mama" maxlength="20" required>
 						</div>
 						<div class="priimek">
 							<label for="priimek_mama">Priimek matere:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="text" id="priimek_mama" name="priimek_mama">
+							<input type="text" id="priimek_mama" name="priimek_mama" maxlength="20" required>
 						</div>
 					</div>
 					<label for="telefonska">Telefonska številka matere
@@ -109,9 +109,9 @@
 							<option value="+386">+386 (Slovenija)</option>
 							<option value="+39">+39 (Italija)</option>
 						</select>
-						<input type="tel" class="number" maxlength="8" pattern="\d{8}" placeholder="12345678" required>
+						<input type="number" class="number" maxlength="8" oninput="this.value=this.value.slice(0,8)" placeholder="12345678" required>
 					</div>
-					<label for="mail-mama">E - poštni naslov očeta:
+					<label for="mail-mama">E - poštni naslov matere:
 						<p class="obvezno"> *</p>
 					</label>
 					<input type="email" class="mail-mama" name="mail-mama" required>
@@ -121,13 +121,13 @@
 							<label for="ime_tata">Ime očeta:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="text" id="ime_tata" name="ime_tata" required>
+							<input type="text" id="ime_tata" name="ime_tata" maxlength="20" required>
 						</div>
 						<div class="priimek">
 							<label for="priimek_tata">Priimek očeta:
 								<p class="obvezno"> *</p>
 							</label>
-							<input type="text" id="priimek_tata" name="priimek_tata" required>
+							<input type="text" id="priimek_tata" name="priimek_tata" maxlength="20" required>
 						</div>
 					</div>
 					<label for="telefonska">Telefonska številka očeta
@@ -138,7 +138,7 @@
 							<option value="+386">+386 (Slovenija)</option>
 							<option value="+39">+39 (Italija)</option>
 						</select>
-						<input type="tel" class="number" maxlength="8" pattern="\d{8}" placeholder="12345678" required>
+						<input type="tel" class="number" maxlength="8" oninput="this.value=this.value.slice(0,8)" placeholder="12345678" required>
 					</div>
 					<label for="mail-tata">E - poštni naslov očeta:
 						<p class="obvezno"> *</p>
@@ -160,13 +160,70 @@
 						<label for="gdpr">V kolikor se strinjate z zgornjo izjavo izberite DA 
 							<p class="obvezno"> *</p>
 						</label>
-						<label for="slike">DA</label>
-						<input type="radio" class="slike-ja" name="slike-ja">
-						<label for="slike">NE
-						</label>
-						<input type="radio" class="slike-ne" name="slike-ne" required>
+						<div class="gumbi-da-ne">
+							<label for="da">
+								<input type="radio" id="da" class="ja" name="gdpr" value="da" required> DA
+							</label>
+							<label for="ne">
+								<input type="radio" id="ne" class="ne" name="gdpr" value="ne" required> NE
+							</label>
+						</div>
 						<div class="podpis">
-							<script src="js/signature-pad.min.js" class="signature-pad-script" id="signature-pad-script-f36ea274-e156-456a-a543-dc1a80ffde67"></script>
+							<canvas id="podpis-canvas" width="300"></canvas>
+							<script>
+								var canvas = document.getElementById("podpis-canvas");
+								var context = canvas.getContext("2d");
+								
+								canvas.width = 300;
+								canvas.height = 195;
+
+								var points = [];
+								var last = 0;
+								var color = "#000000";
+								var size = 2;
+
+								canvas.onmousemove = function(e) {
+								  if (e.buttons == 1) {
+									var offsets = canvas.getBoundingClientRect();
+									var zgoraj = offsets.top;
+									var levo = offsets.left;
+									addClick(e.pageX - levo, e.pageY - zgoraj, true);
+									redraw();
+								  }
+								}
+
+								canvas.onmousedown = function(e) {
+									var offsets = canvas.getBoundingClientRect();
+									var zgoraj = offsets.top;
+									var levo = offsets.left;
+								  addClick(e.pageX - levo, e.pageY - zgoraj, false);
+								  redraw();
+								}
+
+								function addClick(x, y, dragging) {
+								  points.push({x: x, y: y, dragging: dragging });
+								}
+
+								context.lineJoin = "round";
+
+								function redraw() {
+								  context.strokeStyle = color;
+								  context.lineWidth = size;
+								  for (var i = last; i < points.length; i++) {
+									context.beginPath();
+									if (points[i].dragging && i)
+									  context.moveTo(points[i - 1].x, points[i - 1].y);
+									else
+									  context.moveTo(points[i].x, points[i].y);
+									context.lineTo(points[i].x, points[i].y);
+									
+									context.closePath();
+									context.stroke();
+								  }
+								  
+								  last = points.length;
+								}
+							</script>
 						</div>
 						<div class="gumbi">
 							<button type="button" onclick="previousStep()">Nazaj</button>
