@@ -138,7 +138,7 @@
 							<option value="+386">+386 (Slovenija)</option>
 							<option value="+39">+39 (Italija)</option>
 						</select>
-						<input type="tel" class="number" maxlength="8" oninput="this.value=this.value.slice(0,8)" placeholder="12345678" required>
+						<input type="number" class="number" maxlength="8" oninput="this.value=this.value.slice(0,8)" placeholder="12345678" required>
 					</div>
 					<label for="mail-tata">E - poštni naslov očeta:
 						<p class="obvezno"> *</p>
@@ -169,7 +169,7 @@
 							</label>
 						</div>
 						<div class="podpis">
-							<canvas id="podpis-canvas" width="300"></canvas>
+							<canvas id="podpis-canvas" width="300" height="300"></canvas>
 							<script>
 								var canvas = document.getElementById("podpis-canvas");
 								var context = canvas.getContext("2d");
