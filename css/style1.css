@@ -17,6 +17,7 @@ body{
 	position: static;
 	z-index:1;
 	opacity: 0.9;
+	overflow-y: hidden;
 }
 .glavni{
 	width: 900px;
