@@ -36,8 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("multiStepForm").onsubmit = function(event) {
     event.preventDefault();  
-
-    alert("Oddali ste prijavnico! Najlepša hvala!");
+    Swal.fire({
+        title: 'Uspešno!',
+        text: 'Obrazec je poslan.',
+        icon: 'success',
+        confirmButtonText: 'Zapri'
+    });
 };
 
 function validateForm() {
@@ -48,7 +52,12 @@ function validateForm() {
         if (!field.value.trim()) {
             isValid = false;
             field.classList.add("invalid");
-            alert(`Napaka: Prosimo, izpolnite polje: ${field.previousElementSibling.textContent.trim()}`);
+            Swal.fire({
+                title: 'Napaka',
+                text: `Prosimo, izpolnite polje: ${field.previousElementSibling.textContent.trim()}`,
+                icon: 'error',
+                confirmButtonText: 'V redu'
+            });
             return false;
         } else {
             field.classList.remove("invalid");
@@ -57,7 +66,12 @@ function validateForm() {
         if (field.type === "email" && !validateEmail(field.value)) {
             isValid = false;
             field.classList.add("invalid");
-            alert(`Napaka: Neveljaven e-poštni naslov: ${field.value}. Preverite, da vsebuje @ in veljavno strukturo.`);
+            Swal.fire({
+                title: 'Napaka',
+                text: `Neveljaven e-poštni naslov: ${field.value}. Preverite, da vsebuje @ in veljavno strukturo.`,
+                icon: 'error',
+                confirmButtonText: 'V redu'
+            });
             return false;
         }
     });
@@ -73,7 +87,12 @@ function validateStep(step) {
         if (!field.value.trim()) {
             isValid = false;
             field.classList.add("invalid");
-            alert("Napaka: Prosimo, izpolnite vsa polja označena z *.");
+            Swal.fire({
+                title: 'Napaka',
+                confirmButtonText: 'V redu'
+                text: 'Prosimo, izpolnite vsa polja označena z *.',
+                icon: 'error',
+            });
             return false;
         } else {
             field.classList.remove("invalid");
