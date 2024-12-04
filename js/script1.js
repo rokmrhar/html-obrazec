@@ -36,12 +36,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("multiStepForm").onsubmit = function(event) {
     event.preventDefault();  
+
     Swal.fire({
-        title: 'Uspešno!',
-        text: 'Obrazec je poslan.',
-        icon: 'success',
-        confirmButtonText: 'Zapri'
-    });
+        title: "Oddali ste prijavnico!",
+        text: "Najlepša hvala!",
+        icon: "success",
+        confirmButtonText: "Zapri obvestilo"
+    }); 
 };
 
 function validateForm() {
@@ -52,11 +53,12 @@ function validateForm() {
         if (!field.value.trim()) {
             isValid = false;
             field.classList.add("invalid");
+            // Napaka bo prikazana samo, če so potrebna polja prazna
             Swal.fire({
-                title: 'Napaka',
+                title: "Napaka!",
                 text: `Prosimo, izpolnite polje: ${field.previousElementSibling.textContent.trim()}`,
-                icon: 'error',
-                confirmButtonText: 'V redu'
+                icon: "error",
+                confirmButtonText: "V redu"
             });
             return false;
         } else {
@@ -67,10 +69,10 @@ function validateForm() {
             isValid = false;
             field.classList.add("invalid");
             Swal.fire({
-                title: 'Napaka',
+                title: "Napaka!",
                 text: `Neveljaven e-poštni naslov: ${field.value}. Preverite, da vsebuje @ in veljavno strukturo.`,
-                icon: 'error',
-                confirmButtonText: 'V redu'
+                icon: "error",
+                confirmButtonText: "V redu"
             });
             return false;
         }
@@ -78,7 +80,6 @@ function validateForm() {
 
     return isValid;
 }
-
 function validateStep(step) {
     let isValid = true;
     const stepFields = tabs[step].querySelectorAll("[required]");
@@ -88,10 +89,10 @@ function validateStep(step) {
             isValid = false;
             field.classList.add("invalid");
             Swal.fire({
-                title: 'Napaka',
-                confirmButtonText: 'V redu'
-                text: 'Prosimo, izpolnite vsa polja označena z *.',
-                icon: 'error',
+                title: "Napaka!",
+                text: `Prosimo, izpolnite vsa polja označena z *`,
+                icon: "error",
+                confirmButtonText: "V redu"
             });
             return false;
         } else {
@@ -101,7 +102,6 @@ function validateStep(step) {
 
     return isValid;
 }
-
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
