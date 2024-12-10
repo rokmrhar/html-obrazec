@@ -12,6 +12,13 @@ function showStep(step) {
     });
 
     progress.style.width = `${(step / (circles.length - 1)) * 100}%`;
+
+    const submitButton = document.querySelector("#multiStepForm button[type='submit']");
+    if (currentStep === tabs.length - 1) {
+        submitButton.textContent = "Submit Form";
+    } else {
+        submitButton.textContent = "Next Step";
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
