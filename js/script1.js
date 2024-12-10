@@ -2,6 +2,7 @@ let currentStep = 0;
 const tabs = document.querySelectorAll(".tab");
 const circles = document.querySelectorAll(".circle");
 const progress = document.getElementById("progress");
+const nextButton = document.getElementById("nextButton");
 
 function showStep(step) {
     tabs.forEach((tab, index) => {
@@ -12,6 +13,15 @@ function showStep(step) {
     });
 
     progress.style.width = `${(step / (circles.length - 1)) * 100}%`;
+
+    // Spremeni gumb za drugi korak
+    if (step === 1) {
+        nextButton.textContent = "Submit";
+        nextButton.type = "submit"; // Gumb postane submit
+    } else {
+        nextButton.textContent = "Next";
+        nextButton.type = "button"; // Gumb ostane navaden
+    }
 }
 
 function nextStep() {
@@ -35,14 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.getElementById("multiStepForm").onsubmit = function(event) {
-    event.preventDefault();  
+    event.preventDefault();
 
     Swal.fire({
         title: "Oddali ste prijavnico!",
         text: "Najlepša hvala!",
         icon: "success",
         confirmButtonText: "Zapri obvestilo"
-    }); 
+    });
 };
 
 function validateForm() {
@@ -53,7 +63,6 @@ function validateForm() {
         if (!field.value.trim()) {
             isValid = false;
             field.classList.add("invalid");
-            // Napaka bo prikazana samo, če so potrebna polja prazna
             Swal.fire({
                 title: "Napaka!",
                 text: `Prosimo, izpolnite polje: ${field.previousElementSibling.textContent.trim()}`,
@@ -80,6 +89,7 @@ function validateForm() {
 
     return isValid;
 }
+
 function validateStep(step) {
     let isValid = true;
     const stepFields = tabs[step].querySelectorAll("[required]");
@@ -102,6 +112,7 @@ function validateStep(step) {
 
     return isValid;
 }
+
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
