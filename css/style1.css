@@ -166,7 +166,7 @@ input[type="text"], input[type="date"], input[type="number"], input[type="tel"],
 }
 input[type="textarea"]{
 	font-size: 14px;
-	padding: 10px;
+	padding: 100px;
 	box-sizing: border-box;
 	border: 1px solid #ddd;
 	border-radius: 4px;
