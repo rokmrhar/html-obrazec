@@ -60,7 +60,7 @@
 					<label for="naslov">Naslov stalnega prebivališča:
 						<p class="obvezno"> *</p>
 					</label>
-					<input type="text" name="naslov" id="naslov" style="padding-top:5px" maxlength="40" pattern="[0-9]*" required>
+					<input type="text" name="naslov" id="naslov" style="padding-top:5px" maxlength="40" required>
 					<div class="emdav">
 						<div class="emso">
 							<label for="EMSO">EMŠO:
@@ -170,7 +170,7 @@
 						</div>
 						<div class="podpis">
 							<label for="izjava">Z podpisom se strinjam, da so vsi vnešeni podatki resnični.</label>
-							<canvas id="podpis-canvas" width="300" height="300"></canvas>
+							<canvas id="podpis-canvas" width="300" height="300" style="positition: relative;"></canvas>
 							<script>
 								var canvas = document.getElementById("podpis-canvas");
 								var context = canvas.getContext("2d");
@@ -228,7 +228,7 @@
 						</div>
 						<div class="gumbi">
 							<button type="button" onclick="previousStep()">Nazaj</button>
-							<button type="submit" id="submitBtn">Pošlji</button>
+							<button type="button" onclick="nextStep()">Pošlji</button>
 						</div>
 				</div>
 			</form>
