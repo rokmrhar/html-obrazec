@@ -2,7 +2,6 @@ let currentStep = 0;
 const tabs = document.querySelectorAll(".tab");
 const circles = document.querySelectorAll(".circle");
 const progress = document.getElementById("progress");
-const nextButton = document.getElementById("nextButton");
 
 function showStep(step) {
     tabs.forEach((tab, index) => {
@@ -13,31 +12,6 @@ function showStep(step) {
     });
 
     progress.style.width = `${(step / (circles.length - 1)) * 100}%`;
-
-    // Spremeni gumb za drugi korak
-    if (step === 1) {
-        nextButton.textContent = "Submit";
-        nextButton.type = "submit"; // Gumb postane submit
-    } else {
-        nextButton.textContent = "Next";
-        nextButton.type = "button"; // Gumb ostane navaden
-    }
-}
-
-function nextStep() {
-    if (currentStep < tabs.length - 1) {
-        if (validateStep(currentStep)) {
-            currentStep++;
-            showStep(currentStep);
-        }
-    }
-}
-
-function previousStep() {
-    if (currentStep > 0) {
-        currentStep--;
-        showStep(currentStep);
-    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -47,12 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
 document.getElementById("multiStepForm").onsubmit = function(event) {
     event.preventDefault();
 
-    Swal.fire({
-        title: "Oddali ste prijavnico!",
-        text: "Najlepša hvala!",
-        icon: "success",
-        confirmButtonText: "Zapri obvestilo"
-    });
+    if (validateStep(currentStep)) {
+        if (currentStep < tabs.length - 1) {
+            currentStep++;
+            showStep(currentStep);
+        } else {
+            Swal.fire({
+                title: "Oddali ste prijavnico!",
+                text: "Najlepša hvala!",
+                icon: "success",
+                confirmButtonText: "Zapri obvestilo"
+            });
+        }
+    }
 };
 
 function validateForm() {
