@@ -5,7 +5,7 @@ const progress = document.getElementById("progress");
 
 function showStep(step) {
     tabs.forEach((tab, index) => {
-        tab.style.display = index === step ? "block" : "none";
+        tab.style.display = index === step ? "block" : "none"; // Uporaba style.display za prikazovanje trenutnega koraka
     });
     circles.forEach((circle, index) => {
         circle.classList.toggle("active", index <= step);
@@ -15,23 +15,23 @@ function showStep(step) {
 
     const submitButton = document.querySelector("#multiStepForm button[type='submit']");
     if (currentStep === tabs.length - 1) {
-        submitButton.textContent = "Pošlji";
+        submitButton.textContent = "Pošlji"; // Na zadnjem koraku gumb postane "Pošlji"
     } else {
-        submitButton.textContent = "Naprej";
+        submitButton.textContent = "Naprej"; // Na ostalih korakih ostane "Naprej"
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    showStep(currentStep);
+    showStep(currentStep); // Prikažemo prvi korak
 });
 
 document.getElementById("multiStepForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Preprečimo privzeto obnašanje obrazca
 
     if (validateStep(currentStep)) {
         if (currentStep < tabs.length - 1) {
             currentStep++;
-            showStep(currentStep);
+            showStep(currentStep); // Premik na naslednji korak
         } else {
             Swal.fire({
                 title: "Oddali ste prijavnico!",
@@ -39,8 +39,8 @@ document.getElementById("multiStepForm").addEventListener("submit", function(eve
                 icon: "success",
                 confirmButtonText: "Zapri obvestilo"
             });
-            this.reset(); // Po želji ponastavite obrazec
-            currentStep = 0; // Vrne na prvi korak
+            this.reset(); // Ponastavitev obrazca
+            currentStep = 0; // Vrni na prvi korak
             showStep(currentStep);
         }
     }
@@ -48,7 +48,7 @@ document.getElementById("multiStepForm").addEventListener("submit", function(eve
 
 function validateStep(step) {
     let isValid = true;
-    const stepFields = tabs[step].querySelectorAll("[required]");
+    const stepFields = tabs[step].querySelectorAll("[required]"); // Preverimo samo polja trenutnega koraka
 
     stepFields.forEach(field => {
         if (!field.value.trim()) {
@@ -56,7 +56,7 @@ function validateStep(step) {
             field.classList.add("invalid");
             Swal.fire({
                 title: "Napaka!",
-                text: `Prosimo, izpolnite vsa obvezna polja.`,
+                text: `Prosimo, izpolnite polje: ${getLabelText(field)}`,
                 icon: "error",
                 confirmButtonText: "V redu"
             });
@@ -69,7 +69,7 @@ function validateStep(step) {
             field.classList.add("invalid");
             Swal.fire({
                 title: "Napaka!",
-                text: `Neveljaven e-poštni naslov: ${field.value}.`,
+                text: `Neveljaven e-poštni naslov: ${field.value}`,
                 icon: "error",
                 confirmButtonText: "V redu"
             });
@@ -77,6 +77,11 @@ function validateStep(step) {
     });
 
     return isValid;
+}
+
+function getLabelText(field) {
+    const label = field.closest("div").querySelector("label");
+    return label ? label.textContent.trim() : "neznano polje";
 }
 
 function validateEmail(email) {
