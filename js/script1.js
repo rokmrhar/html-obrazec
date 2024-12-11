@@ -36,8 +36,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.getElementById("multiStepForm").onsubmit = function(event) {
     event.preventDefault();  
-
     Swal.fire({
+        title: 'Uspešno!',
+        text: 'Obrazec je poslan.',
+        icon: 'success',
+        confirmButtonText: 'Zapri'
+    });
         title: "Oddali ste prijavnico!",
         text: "Najlepša hvala!",
         icon: "success",
@@ -55,8 +59,11 @@ function validateForm() {
             field.classList.add("invalid");
             // Napaka bo prikazana samo, če so potrebna polja prazna
             Swal.fire({
+                title: 'Napaka',
                 title: "Napaka!",
                 text: `Prosimo, izpolnite polje: ${field.previousElementSibling.textContent.trim()}`,
+                icon: 'error',
+                confirmButtonText: 'V redu'
                 icon: "error",
                 confirmButtonText: "V redu"
             });
@@ -69,8 +76,11 @@ function validateForm() {
             isValid = false;
             field.classList.add("invalid");
             Swal.fire({
+                title: 'Napaka',
                 title: "Napaka!",
                 text: `Neveljaven e-poštni naslov: ${field.value}. Preverite, da vsebuje @ in veljavno strukturo.`,
+                icon: 'error',
+                confirmButtonText: 'V redu'
                 icon: "error",
                 confirmButtonText: "V redu"
             });
@@ -89,6 +99,10 @@ function validateStep(step) {
             isValid = false;
             field.classList.add("invalid");
             Swal.fire({
+                title: 'Napaka',
+                confirmButtonText: 'V redu'
+                text: 'Prosimo, izpolnite vsa polja označena z *.',
+                icon: 'error',
                 title: "Napaka!",
                 text: `Prosimo, izpolnite vsa polja označena z *`,
                 icon: "error",
